@@ -14,6 +14,7 @@ import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
+import MainButton from '../components/MainButton';
 
 import Colors from '../constants/colors';
 
@@ -54,7 +55,7 @@ const StartGameScreen = props => {
       <Card style={styles.summaryContainer}>
         <BodyText>You selected</BodyText>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="Start Game" onPress={() => props.onStartGame(selectedNumber)} />
+        <MainButton onPress={() => props.onStartGame(selectedNumber)}>START GAME</MainButton>
       </Card>
     );
   }
@@ -79,12 +80,21 @@ const StartGameScreen = props => {
             onChangeText={numberInputHandler}
             value={enteredValue}
           />
+
           <View style={styles.buttonContainer}>
             <View style={styles.button}>
-              <Button title="Reset" onPress={resetInputHandler} color={Colors.accent} />
+              <MainButton
+                onPress={resetInputHandler}
+                style={styles.selectNumberButtonReset}
+                color={Colors.accent}
+              >
+                RESET
+              </MainButton>
             </View>
             <View style={styles.button}>
-              <Button title="Confirm" onPress={confirmInputHandler} color={Colors.primary} />
+              <MainButton onPress={confirmInputHandler} style={styles.selectNumberButton}>
+                CONFIRM
+              </MainButton>
             </View>
           </View>
         </Card>
@@ -104,8 +114,8 @@ const styles = StyleSheet.create({
     marginVertical: 30,
   },
   inputContainer: {
-    width: 300,
-    maxWidth: '80%',
+    width: 360,
+    maxWidth: '90%',
     alignItems: 'center',
   },
   buttonContainer: {
@@ -128,6 +138,17 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'open-sans',
+  },
+  selectNumberButton: {
+    paddingVertical: 14,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+  },
+  selectNumberButtonReset: {
+    paddingVertical: 14,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    backgroundColor: Colors.accent,
   },
 });
 
