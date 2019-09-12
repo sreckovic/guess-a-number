@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, Alert, ScrollView, FlatList, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { ScreenOrientation } from 'expo';
+
 import DefaultStyles from '../constants/default-styles';
 
 import NumberContainer from '../components/NumberContainer';
